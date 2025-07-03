@@ -1,0 +1,8 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+body {
+  @apply bg-gradient-to-r from-[#fff8e1] to-[#ffe0b2] text-black;
+  font-family: sans-serif;
+}
