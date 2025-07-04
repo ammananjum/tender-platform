@@ -13,7 +13,7 @@ export default function CompaniesPage() {
   const [userId, setUserId] = useState<string | null>(null);
   const router = useRouter();
 
-  // ✅ Decode user ID from token
+  // Decode user ID from token
   useEffect(() => {
     const token = localStorage.getItem('token');
     if (token) {
@@ -31,8 +31,8 @@ export default function CompaniesPage() {
     try {
       setLoading(true);
       const url = query
-        ? `http://localhost:5000/api/companies/search?query=${query}`
-        : `http://localhost:5000/api/companies`;
+        ? `https://aaf66dd5-0f58-4260-b5c7-2500d873a104-00-1nmayt2nnhqz.sisko.replit.dev/api/companies/search?query=${query}`
+        : `https://aaf66dd5-0f58-4260-b5c7-2500d873a104-00-1nmayt2nnhqz.sisko.replit.dev/api/companies`;
       const res = await fetch(url);
       if (!res.ok) throw new Error('Failed to fetch companies');
       const data = await res.json();
@@ -62,7 +62,7 @@ export default function CompaniesPage() {
     if (!confirmed) return;
 
     try {
-      const res = await fetch('http://localhost:5000/api/companies/delete', {
+      const res = await fetch('https://aaf66dd5-0f58-4260-b5c7-2500d873a104-00-1nmayt2nnhqz.sisko.replit.dev/api/companies/delete', {
         method: 'DELETE',
         headers: {
           Authorization: `Bearer ${localStorage.getItem('token')}`,
