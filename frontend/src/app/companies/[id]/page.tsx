@@ -11,7 +11,7 @@ export default function CompanyProfilePage() {
   useEffect(() => {
     const fetchCompany = async () => {
       try {
-        const res = await fetch(`http://localhost:5000/api/companies/${id}`);
+        const res = await fetch(`https://aaf66dd5-0f58-4260-b5c7-2500d873a104-00-1nmayt2nnhqz.sisko.replit.dev/api/companies/${id}`);
         const data = await res.json();
 
         if (!res.ok) throw new Error(data.message || 'Error fetching company');
