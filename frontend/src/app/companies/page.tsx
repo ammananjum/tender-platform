@@ -26,7 +26,7 @@ export default function CompaniesPage() {
     }
   }, []);
 
-  // ✅ Fetch companies
+  //  Fetch companies
   const fetchCompanies = async (query = '') => {
     try {
       setLoading(true);
@@ -50,13 +50,13 @@ export default function CompaniesPage() {
     fetchCompanies();
   }, []);
 
-  // ✅ Search form
+  //  Search form
   const handleSearch = (e: React.FormEvent) => {
     e.preventDefault();
     fetchCompanies(search);
   };
 
-  // ✅ Delete company
+  // Delete company
   const handleDelete = async () => {
     const confirmed = confirm('Are you sure you want to delete your company?');
     if (!confirmed) return;
@@ -130,7 +130,7 @@ export default function CompaniesPage() {
                     View Profile
                   </Link>
 
-                  {/* ✅ Show Edit/Delete only if it's user's own company */}
+                  {/*  Show Edit/Delete only if it's user's own company */}
                   {userId && company.user_id === userId && (
                     <div className="flex gap-4 mt-3">
                       <Link
