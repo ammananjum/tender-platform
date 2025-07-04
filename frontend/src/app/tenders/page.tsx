@@ -20,11 +20,11 @@ export default function TendersPage() {
   useEffect(() => {
     const fetchTenders = async () => {
       try {
-        const res = await fetch('http://localhost:5000/api/tenders');
+        const res = await fetch('https://aaf66dd5-0f58-4260-b5c7-2500d873a104-00-1nmayt2nnhqz.sisko.replit.dev/api/tenders');
         const data = await res.json();
         setTenders(data);
       } catch (error) {
-        console.error('❌ Error fetching tenders:', error);
+        console.error('Error fetching tenders:', error);
       } finally {
         setLoading(false);
       }
@@ -37,7 +37,7 @@ export default function TendersPage() {
 
   return (
     <div className="min-h-screen bg-white px-10 py-12 flex flex-col lg:flex-row gap-12 items-start">
-      {/* ✅ Left: Tender Cards */}
+      {/* Left: Tender Cards */}
       <div className="w-full lg:w-2/3">
         <h1 className="text-3xl font-bold text-blue-700 mb-8">All Tenders</h1>
 
@@ -70,10 +70,10 @@ export default function TendersPage() {
         )}
       </div>
 
-      {/* ✅ Right: Illustration */}
+      {/* Right: Illustration */}
       <div className="hidden lg:block lg:w-1/3">
         <img
-          src="/Product.svg"  // 🔁 Change this image filename as needed
+          src="/Product.svg"  
           alt="Tender Illustration"
           className="w-full h-auto rounded-lg shadow-lg"
         />
