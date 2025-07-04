@@ -14,7 +14,7 @@ export default function Register() {
     setMessage('');
 
     try {
-      const res = await fetch('http://localhost:5000/api/users/register', {
+      const res = await fetch('https://aaf66dd5-0f58-4260-b5c7-2500d873a104-00-1nmayt2nnhqz.sisko.replit.dev/api/users/register', {
         method: 'POST',
         headers: { 'Content-Type': 'application/json' },
         body: JSON.stringify(form),
@@ -23,13 +23,13 @@ export default function Register() {
       const data = await res.json();
 
       if (res.ok) {
-        setMessage('✅ Account created! Redirecting to login...');
+        setMessage(' Account created! Redirecting to login...');
         setTimeout(() => router.push('/login'), 1500);
       } else {
         setMessage('❌ ' + (data.message || 'Something went wrong'));
       }
     } catch (err) {
-      setMessage('❌ Failed to connect to server');
+      setMessage(' Failed to connect to server');
     }
   };
 
