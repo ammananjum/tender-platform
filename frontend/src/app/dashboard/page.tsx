@@ -28,7 +28,7 @@ export default function DashboardPage() {
   useEffect(() => {
     const fetchCompany = async () => {
       try {
-        const res = await fetch('http://localhost:5000/api/companies/my-profile', {
+        const res = await fetch('https://aaf66dd5-0f58-4260-b5c7-2500d873a104-00-1nmayt2nnhqz.sisko.replit.dev/api/companies/my-profile', {
           headers: {
             Authorization: `Bearer ${localStorage.getItem('token')}`,
           },
@@ -39,7 +39,7 @@ export default function DashboardPage() {
           setCompany(data);
         }
       } catch (err) {
-        console.error('❌ Could not fetch company:', err);
+        console.error(' Could not fetch company:', err);
       }
     };
 
@@ -51,7 +51,7 @@ export default function DashboardPage() {
     if (!confirmDelete) return;
 
     try {
-      const res = await fetch('http://localhost:5000/api/companies/delete', {
+      const res = await fetch('https://aaf66dd5-0f58-4260-b5c7-2500d873a104-00-1nmayt2nnhqz.sisko.replit.dev/api/companies/delete', {
         method: 'DELETE',
         headers: {
           Authorization: `Bearer ${localStorage.getItem('token')}`,
@@ -61,7 +61,7 @@ export default function DashboardPage() {
       const result = await res.json();
       if (!res.ok) throw new Error(result.message);
 
-      alert('✅ Company deleted');
+      alert('Company deleted');
       setCompany(null);
     } catch (err: any) {
       alert(err.message || 'Delete failed');
@@ -72,7 +72,7 @@ export default function DashboardPage() {
     <div className="min-h-screen bg-white px-6 py-14">
       <div className="max-w-6xl mx-auto flex flex-col md:flex-row gap-12 items-start">
         
-        {/* ✅ Left Section */}
+        {/* Left Section */}
         <div className="md:w-2/3 space-y-6">
           <h1 className="text-4xl font-extrabold text-indigo-600">
             Welcome{user?.email ? `, ${user.email}` : ''}!
@@ -117,7 +117,7 @@ export default function DashboardPage() {
           )}
         </div>
 
-        {/* ✅ Right Section - Image */}
+        {/* Right Section - Image */}
         <div className="hidden md:block md:w-1/3">
           <img
             src="/Dashboard.svg"
