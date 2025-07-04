@@ -21,5 +21,4 @@ CareerTender is a full-stack web application that enables companies to create an
 
 ## Links
 
-- Live Demo: 
 - LinkedIn: https://www.linkedin.com/in/amman-csstudent-7b345b370
