@@ -17,12 +17,14 @@ export default function TenderDetailPage() {
 
     const fetchTender = async () => {
       try {
-        const res = await fetch(`https://aaf66dd5-0f58-4260-b5c7-2500d873a104-00-1nmayt2nnhqz.sisko.replit.dev/api/tenders`);
+        const res = await fetch(
+          `https://aaf66dd5-0f58-4260-b5c7-2500d873a104-00-1nmayt2nnhqz.sisko.replit.dev/api/tenders`
+        );
         const data = await res.json();
         const selectedTender = data.find((t: any) => t.id === Number(id));
         setTender(selectedTender);
       } catch (error) {
-        console.error( Error fetching tender:', error);
+        console.error("Error fetching tender:", error);
       }
     };
 
@@ -38,14 +40,17 @@ export default function TenderDetailPage() {
     }
 
     try {
-      const res = await fetch('https://aaf66dd5-0f58-4260-b5c7-2500d873a104-00-1nmayt2nnhqz.sisko.replit.dev/api/tenders/apply', {
-        method: 'POST',
-        headers: {
-          'Content-Type': 'application/json',
-          Authorization: `Bearer ${token}`,
-        },
-        body: JSON.stringify({ tender_id: id, proposal }),
-      });
+      const res = await fetch(
+        'https://aaf66dd5-0f58-4260-b5c7-2500d873a104-00-1nmayt2nnhqz.sisko.replit.dev/api/tenders/apply',
+        {
+          method: 'POST',
+          headers: {
+            'Content-Type': 'application/json',
+            Authorization: `Bearer ${token}`,
+          },
+          body: JSON.stringify({ tender_id: id, proposal }),
+        }
+      );
 
       const data = await res.json();
       if (!res.ok) throw new Error(data.message);
@@ -57,15 +62,18 @@ export default function TenderDetailPage() {
     }
   };
 
-  if (!tender) return <p className="p-10 text-gray-600">Loading tender details...</p>;
+  if (!tender)
+    return <p className="p-10 text-gray-600">Loading tender details...</p>;
 
   return (
     <div className="min-h-screen w-full bg-white text-black px-6 py-12">
       <div className="max-w-3xl mx-auto bg-white">
-        <h1 className="text-3xl font-bold text-blue-700 mb-4">{tender.title}</h1>
+        <h1 className="text-3xl font-bold text-blue-700 mb-4">
+          {tender.title}
+        </h1>
         <p className="text-gray-800 mb-3">{tender.description}</p>
-        <p className="text-gray-700 mb-1"> Budget: ${tender.budget}</p>
-        <p className="text-gray-700 mb-6"> Deadline: {tender.deadline}</p>
+        <p className="text-gray-700 mb-1">Budget: ${tender.budget}</p>
+        <p className="text-gray-700 mb-6">Deadline: {tender.deadline}</p>
 
         {isAuthenticated ? (
           <div className="space-y-4 mt-6">
